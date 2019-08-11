@@ -1,8 +1,6 @@
-# Paymongo
+# PayMongo Ruby Library
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/paymongo`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Charge credit cards using [PayMongo](https://developers.paymongo.com/) in Ruby.
 
 ## Installation
 
@@ -12,17 +10,42 @@ Add this line to your application's Gemfile:
 gem 'paymongo'
 ```
 
-And then execute:
-
-    $ bundle
-
 Or install it yourself as:
 
-    $ gem install paymongo
+```ruby
+gem install paymongo
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+In an initializer:
+
+```ruby
+Paymongo.configure do |c|
+  c.api_key = "PAYMONGO-SK-API-KEY"
+end
+```
+
+## Initializing a Gateway
+
+This is the instance that you will be interacting with to create payments.
+
+```ruby
+gateway = Paymongo::Gateway.new
+```
+
+## Charge a Card
+
+```ruby
+result = gateway.charge_card(
+  token: token_from_the_client,
+  amount: 10000,
+  currency: "PHP",
+  # Below are optional
+  description: "Payment for Invoice #0001",
+  statement_descriptor: "MAKISU.CO"
+)
+```
 
 ## Development
 
@@ -32,12 +55,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/paymongo. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/makisu/paymongo_ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the Paymongo project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/paymongo/blob/master/CODE_OF_CONDUCT.md).
