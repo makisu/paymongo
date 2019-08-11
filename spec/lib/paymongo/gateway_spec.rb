@@ -6,7 +6,7 @@ module Paymongo
       vcr: {record: :once, match_requests_on: [:method]}
     }) do
       gateway = described_class.new(
-        api_key: CONFIG[:api_key],
+        secret_key: CONFIG[:secret_key],
         logger: Logger.new("tmp/test.log")
       )
       res = gateway.charge_card(

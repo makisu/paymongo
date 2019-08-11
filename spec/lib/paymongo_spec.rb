@@ -2,10 +2,16 @@ require "spec_helper"
 
 RSpec.describe Paymongo do
   describe ".configure" do
-    it "allows setting of api_key" do
-      Paymongo.configure {|c| c.api_key = "my_api_key"}
-      expect(Paymongo.configuration.api_key).
+    it "allows setting of secret_key" do
+      Paymongo.configure {|c| c.secret_key = "my_api_key"}
+      expect(Paymongo.configuration.secret_key).
         to eq("my_api_key")
+    end
+
+    it "allows setting of public_key" do
+      Paymongo.configure {|c| c.public_key = "p_key"}
+      expect(Paymongo.configuration.public_key).
+        to eq("p_key")
     end
 
     it "allows setting of logger" do

@@ -22,7 +22,8 @@ In an initializer:
 
 ```ruby
 Paymongo.configure do |c|
-  c.api_key = "PAYMONGO-SK-API-KEY"
+  c.secret_key = "PAYMONGO-SK-API-KEY"
+  c.public_key = "PAYMONGO-PK-API-KEY"
 end
 ```
 

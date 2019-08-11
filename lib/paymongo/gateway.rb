@@ -1,17 +1,20 @@
 module Paymongo
   class Gateway
 
-    attr_accessor :api_key
-    attr_accessor :logger
+    attr_reader :secret_key
+    attr_reader :public_key
+    attr_reader :logger
 
     LOG_TAG = "[paymongo_ruby]"
 
     def initialize(
-      api_key: Paymongo.configuration.api_key,
+      secret_key: Paymongo.configuration.secret_key,
+      public_key: Paymongo.configuration.public_key,
       logger: Paymongo.configuration.logger
     )
-      self.api_key = api_key
-      self.logger = logger
+      @secret_key = secret_key
+      @public_key = public_key
+      @logger = logger
     end
 
     def charge_card(token:, amount:, currency:, description: '', statement_descriptor: '')
@@ -37,7 +40,7 @@ module Paymongo
       https = Net::HTTP.new(uri.host, uri.port)
       https.use_ssl = true
       req = Net::HTTP::Post.new(uri.path, header)
-      req.basic_auth(api_key, '')
+      req.basic_auth(secret_key, '')
       req.body = payment_params
       https.request(req)
     end

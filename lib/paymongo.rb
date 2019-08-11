@@ -10,12 +10,9 @@ module Paymongo
   include GemConfig::Base
 
   with_configuration do
-    has :api_key, classes: String
+    has :secret_key, classes: String
+    has :public_key, classes: String
     has :logger
-  end
-
-  def self.new(*args)
-    Gateway.new(*args)
   end
 
 end
