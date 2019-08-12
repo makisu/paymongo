@@ -18,7 +18,7 @@ gem install paymongo
 
 ## Usage
 
-In an initializer:
+In an initializer, you can set default values:
 
 ```ruby
 Paymongo.configure do |c|
@@ -32,7 +32,10 @@ end
 This is the instance that you will be interacting with to create payments.
 
 ```ruby
-gateway = Paymongo::Gateway.new
+gateway = Paymongo::Gateway.new(
+  secret_key: "...", # only to override the default set in the config
+  public_key: "..." # only to override the default set in the config
+)
 ```
 
 ## Charge a Card

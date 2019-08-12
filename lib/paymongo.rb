@@ -4,6 +4,8 @@ require 'net/http'
 require 'net/https'
 require 'json'
 require 'paymongo/gateway'
+require 'paymongo/configuration'
+require 'paymongo/exceptions'
 
 module Paymongo
   include GemConfig::Base
