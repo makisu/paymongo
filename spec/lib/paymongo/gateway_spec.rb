@@ -8,11 +8,12 @@ module Paymongo
     ) do
       gateway =
         described_class.new(
-          secret_key: CONFIG[:secret_key], logger: Logger.new('tmp/test.log')
+          secret_key: CONFIG[:secret_key],
+          logger: Logger.new('tmp/test.log')
         )
       res =
         gateway.charge_card(
-          token: 'tok_UHjwSWUYYMo3vyXMKBGjf6bR',
+          token: 'tok_Ru7gip89uieig4ZcTKa35Ssn',
           amount: 10_000,
           currency: 'PHP',
           description: 'Payment for Invoice #0001',

@@ -1,26 +1,20 @@
 module Paymongo
   class Gateway
-    attr_reader :secret_key
-    attr_reader :public_key
-    attr_reader :logger
+    attr_reader :config
 
-    LOG_TAG = '[paymongo_ruby]'
-
-    def initialize(
-      secret_key: Paymongo.configuration.secret_key,
-      public_key: Paymongo.configuration.public_key,
-      logger: Paymongo.configuration.logger
-    )
-      @secret_key = secret_key
-      @public_key = public_key
-      @logger = logger
+    def initialize(config)
+      if config.is_a?(Hash)
+        @config = Configuration.new config
+      elsif config.is_a?(Paymongo::Configuration)
+        @config = config
+      else
+        raise ArgumentError, 'config is an invalid type'
+      end
     end
 
     def charge_card(
       token:, amount:, currency:, description: '', statement_descriptor: ''
     )
-      log "Attempting charge with token: #{token}"
-
       header = { 'Content-Type': 'application/json' }
       payment_params = {
         data: {
@@ -38,14 +32,9 @@ module Paymongo
       https = Net::HTTP.new(uri.host, uri.port)
       https.use_ssl = true
       req = Net::HTTP::Post.new(uri.path, header)
-      req.basic_auth(secret_key, '')
+      req.basic_auth(config.secret_key, '')
       req.body = payment_params
       https.request(req)
-    end
-
-    def log(message)
-      return if logger.nil?
-      logger.info [LOG_TAG, message].join(' ')
     end
   end
 end
