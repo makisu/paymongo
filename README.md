@@ -32,9 +32,13 @@ end
 This is the instance that you will be interacting with to create payments.
 
 ```ruby
+# This gateway grabs defaults from config
+gateway = Paymongo::Gateway.new(Paymongo::Configuration.new)
+
+# Only to override the defaults that were set in the config
 gateway = Paymongo::Gateway.new(
-  secret_key: "...", # only to override the default set in the config
-  public_key: "..." # only to override the default set in the config
+  secret_key: "...",
+  public_key: "..."
 )
 ```
 
