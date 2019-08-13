@@ -36,5 +36,9 @@ module Paymongo
       req.body = payment_params
       https.request(req)
     end
+
+    def transaction
+      TransactionGateway.new(self)
+    end
   end
 end

@@ -41,7 +41,7 @@ gateway = Paymongo::Gateway.new(
 ## Charge a Card
 
 ```ruby
-result = gateway.charge_card(
+result = gateway.transaction.sale(
   token: token_from_the_client,
   amount: 10000,
   currency: "PHP",
