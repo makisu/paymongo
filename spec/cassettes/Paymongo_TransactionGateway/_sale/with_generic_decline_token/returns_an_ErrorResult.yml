@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.paymongo.com/v1/payments
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"amount":30000,"currency":"PHP","description":"Payment
+        for Invoice #0003","statement_descriptor":"MAKISU.CO","source":{"id":"tok_C4EFJehbrrwNCCSrqRL9op5L","type":"token"}}}}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic c2tfdGVzdF9jc2JzeVlwSHpYRDJLbnVZTWpWblc0ZkI6
+  response:
+    status:
+      code: 402
+      message: Payment Required
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 13 Aug 2019 00:14:00 GMT
+      Server:
+      - nginx
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains; preload
+      X-Request-Id:
+      - 810f9698-14aa-4d59-a017-119426cd3261
+      X-Runtime:
+      - '0.055839'
+      Content-Length:
+      - '145'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"code":"generic_decline","detail":"Your card has been declined
+        for an unknown reason.","meta":{"type":"card_error"},"status":"402"}]}'
+    http_version: 
+  recorded_at: Tue, 13 Aug 2019 00:14:00 GMT
+recorded_with: VCR 5.0.0

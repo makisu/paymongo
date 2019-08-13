@@ -3,9 +3,15 @@ require 'paymongo/version'
 require 'net/http'
 require 'net/https'
 require 'json'
+require 'paymongo/base_module'
 require 'paymongo/gateway'
 require 'paymongo/configuration'
 require 'paymongo/exceptions'
+require 'paymongo/transaction_gateway'
+require 'paymongo/transaction'
+require 'paymongo/http'
+require 'paymongo/successful_result'
+require 'paymongo/error_result'
 
 module Paymongo
   include GemConfig::Base

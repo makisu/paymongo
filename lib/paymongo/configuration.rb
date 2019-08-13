@@ -56,11 +56,11 @@ module Paymongo
     end
 
     def base_url
-      "#{protocol}://#{server}:#{port}"
+      "#{protocol}://#{server}:#{port}/v#{API_VERSION}"
     end
 
-    def http
-      #   TODO: Implement the http requests
+    def https
+      Http.new(self)
     end
 
     def logger
@@ -91,6 +91,14 @@ module Paymongo
 
     def inspect
       super.gsub(/@secret_key=\".*\"/, '@secret_key="[FILTERED]"')
+    end
+
+    def assert_has_keys
+      if public_key.nil? || secret_key.nil?
+        raise ConfigurationError.new(
+                'Paymongo::Gateway public_key and secret_key are required.'
+              )
+      end
     end
   end
 end
