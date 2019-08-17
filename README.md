@@ -1,4 +1,6 @@
 # PayMongo Ruby Library
+[![Build
+Status](https://travis-ci.org/makisu/paymongo_ruby.svg?branch=master)](https://travis-ci.com/makisu/paymongo_ruby)
 
 Charge credit cards using [PayMongo](https://developers.paymongo.com/) in Ruby.
 
