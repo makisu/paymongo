@@ -57,6 +57,19 @@ result = gateway.transaction.sale(
 )
 ```
 
+## Running the test suite
+
+1. Install the latest Ruby
+
+2. Copy `config.yml.sample` to `config.yml` then run:
+```
+bundle install
+bundle exec rspec spec
+```
+
+3. You can replace values in `config.yml` with values from your PayMongo
+   dashboard
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
