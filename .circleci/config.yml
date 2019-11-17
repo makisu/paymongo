@@ -6,7 +6,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      
+
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -15,8 +15,9 @@ jobs:
             - v1-dependencies-
 
       - run:
-          name: install dependencies
+          name: install dependencies and setup test environment
           command: |
+            cp spec/config.yml.sample spec/config.yml && \
             gem install bundler -v 2.0.2 && \
             bundle install --jobs=4 --retry=3 --path vendor/bundle
 
