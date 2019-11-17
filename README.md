@@ -1,6 +1,5 @@
 # PayMongo Ruby Library
-[![Build
-Status](https://travis-ci.org/makisu/paymongo_ruby.svg?branch=master)](https://travis-ci.com/makisu/paymongo_ruby)
+[![CircleCI](https://circleci.com/gh/makisu/paymongo.svg?style=svg)](https://circleci.com/gh/makisu/paymongo)
 
 Charge credit cards using [PayMongo](https://developers.paymongo.com/) in Ruby.
 
@@ -69,6 +68,10 @@ bundle exec rspec spec
 
 3. You can replace values in `config.yml` with values from your PayMongo
    dashboard
+
+## Branch Organization
+- `master` is the development branch
+- `rubygems` contains code for the latest version of this gem
 
 ## Development
 
