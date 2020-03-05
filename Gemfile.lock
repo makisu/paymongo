@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    paymongo (1.0.1)
+    paymongo (1.0.2)
       activesupport
       gem_config
 
