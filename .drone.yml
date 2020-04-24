@@ -1,0 +1,13 @@
+---
+kind: pipeline
+type: kubernetes
+name: default
+
+steps:
+- name: run tests
+  image: ruby:2.6.5
+  commands:
+  - gem install bundler -v 2.0.2
+  - cp spec/config.yml.sample spec/config.yml
+  - bundle install
+  - bundle exec rspec spec
