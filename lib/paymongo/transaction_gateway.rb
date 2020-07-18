@@ -24,7 +24,7 @@ module Paymongo
     end
 
     def create(attributes)
-      _do_create '/payments', transaction: attributes
+      _do_create '/payments', body: attributes
     end
 
     def _do_create(path, params = nil)

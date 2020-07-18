@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.paymongo.com/v1/payment_methods
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"billing":{"address":{"line1":"Unit 3308, High
+        St South Corp Plaza","line2":"26th Street & 11th Avenue","city":"Taguig","state":"Metro
+        Manila","postal_code":"1634","country":"PH"},"email":"juan@paymongo.com","name":"Juan
+        Dela Cruz","phone":"63288881111"},"details":{"card_number":"4343434343434345","exp_month":1,"exp_year":24,"cvc":"999"},"type":"card","metadata":{"sample":"123"}}}}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic c2tfdGVzdF9ZV1ZYUWFNNEdRemtOMkNRcGJ4QmNjMVY6
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 17 Jul 2020 23:13:22 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - nginx
+      Vary:
+      - Accept-Encoding
+      - Origin
+      Etag:
+      - W/"55b3993c2f0256479dc9b6a1508ef76d"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 87eebca1-f731-4e9d-bd1b-dfa821344570
+      X-Runtime:
+      - '0.072422'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"pm_sVDMnem4gYcxTtAnpGZHFXi2","type":"payment_method","attributes":{"livemode":false,"type":"card","billing":{"address":{"city":"Taguig","country":"PH","line1":"Unit
+        3308, High St South Corp Plaza","line2":"26th Street \u0026 11th Avenue","postal_code":"1634","state":"Metro
+        Manila"},"email":"juan@paymongo.com","name":"Juan Dela Cruz","phone":"63288881111"},"created_at":1595027602,"updated_at":1595027602,"details":{"exp_month":1,"exp_year":24,"last4":"4345"},"metadata":{"sample":"123"}}}}'
+    http_version:
+  recorded_at: Fri, 17 Jul 2020 23:13:22 GMT
+recorded_with: VCR 5.0.0

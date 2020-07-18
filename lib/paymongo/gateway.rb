@@ -40,5 +40,9 @@ module Paymongo
     def transaction
       TransactionGateway.new(self)
     end
+
+    def payment_method
+      PaymentMethodGateway.new(self)
+    end
   end
 end

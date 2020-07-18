@@ -12,6 +12,8 @@ require 'paymongo/transaction'
 require 'paymongo/http'
 require 'paymongo/successful_result'
 require 'paymongo/error_result'
+require 'paymongo/payment_method'
+require 'paymongo/payment_method_gateway'
 
 module Paymongo
   include GemConfig::Base

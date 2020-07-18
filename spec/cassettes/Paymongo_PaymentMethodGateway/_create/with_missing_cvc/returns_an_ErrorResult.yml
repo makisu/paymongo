@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.paymongo.com/v1/payment_methods
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"billing":{"address":{"line1":"Unit 3308, High
+        St South Corp Plaza","line2":"26th Street & 11th Avenue","city":"Taguig","state":"Metro
+        Manila","postal_code":"1634","country":"PH"},"email":"juan@paymongo.com","name":"Juan
+        Dela Cruz","phone":"63288881111"},"details":{"card_number":"4343434343434345","exp_month":1,"exp_year":24,"cvc":null},"type":"card","metadata":{"sample":"123"}}}}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic c2tfdGVzdF9ZV1ZYUWFNNEdRemtOMkNRcGJ4QmNjMVY6
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Sat, 18 Jul 2020 00:05:29 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - nginx
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 1b933b4a-ebac-49e3-8298-d131c14d4f49
+      X-Runtime:
+      - '0.005455'
+      Vary:
+      - Origin
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"code":"parameter_required","detail":"details.cvc is required.","source":{"pointer":"details.cvc","attribute":"cvc"}}]}'
+    http_version:
+  recorded_at: Sat, 18 Jul 2020 00:05:29 GMT
+recorded_with: VCR 5.0.0

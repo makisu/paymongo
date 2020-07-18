@@ -1,6 +1,7 @@
 module Paymongo
   class SuccessfulResult
     attr_reader :transaction
+    attr_reader :payment_method
 
     def initialize(attributes = {})
       @attrs = attributes.keys

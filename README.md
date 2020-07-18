@@ -43,6 +43,42 @@ gateway = Paymongo::Gateway.new(
 )
 ```
 
+## Create a payment method
+
+See: [Create a PaymentMethod](https://developers.paymongo.com/reference#create-a-paymentmethod)
+
+```ruby
+result = gateway.payment_method.create(
+  line1: 'Unit 3308, High St South Corp Plaza',
+  line2: '26th Street & 11th Avenue',
+  city: 'Taguig',
+  state: 'Metro Manila',
+  postal_code: '1634',
+  country: 'PH',
+  email: 'juan@paymongo.com',
+  name: 'Juan Dela Cruz',
+  phone: '63288881111',
+  card_number: '4343434343434345', # String
+  exp_month: 1, # Cannot be zero-padded, Integer
+  exp_year: 24, # Can use full year, 2024; Integer
+  cvc: '999', # String
+  type: 'card',
+  metadata: {
+    sample: '123'
+  }
+)
+result.payment_method
+```
+
+## Get a payment method
+
+See: [Retrieve a PaymentMethod](https://developers.paymongo.com/reference#retrieve-a-paymentmethod)
+
+```ruby
+result = gateway.payment_method.get('pm_sVDMnem4gYcxTtAnpGZHFXi2')
+result.payment_method
+```
+
 ## Charge a Card
 
 ```ruby
@@ -54,6 +90,7 @@ result = gateway.transaction.sale(
   description: "Payment for Invoice #0001",
   statement_descriptor: "MAKISU.CO"
 )
+result.transaction
 ```
 
 ## Running the test suite
